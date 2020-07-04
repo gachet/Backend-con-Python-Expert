@@ -46,7 +46,7 @@
    ```
    ***
 
-1. Responder a la pregunta ¿Qué es la arquitectura Cliente-Servidor? [Esto es una diapo]
+2. Responder a la pregunta ¿Qué es la arquitectura Cliente-Servidor? [Esto es una diapo]
 
    __Resultado__
 
@@ -58,7 +58,7 @@
    5. Un Servidor puede atender a uno o más Clientes
    ***
 
-1. Para crear un contenedor de un servidor de base de datos MariaDB son necesarios algunos parámetros, estos se pueden obtener desde el sitio de donde se descargó la imagen y otros se definen según la necesidad del proyecto:
+3. Para crear un contenedor de un servidor de base de datos MariaDB son necesarios algunos parámetros, estos se pueden obtener desde el sitio de donde se descargó la imagen y otros se definen según la necesidad del proyecto:
 
    https://hub.docker.com/_/mariadb
 
@@ -77,24 +77,25 @@
 
    Sesion-01/Ejemplo-01 $
    ```
-   ***
+   ---
 
-1. Para iniciar el servidor MariaDB hay que iniciar el contenedor llamado __pythonsql__:
+4. Para iniciar el servidor MariaDB hay que iniciar el contenedor llamado __pythonsql__:
 
    ```console
    Sesion-01/Ejemplo-01 $ docker start pythonsql
    pythonsql
    Sesion-01/Ejemplo-01 $ docker ps
    CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
-46304152770a        mariadb:10.3        "docker-entrypoint.s…"   7 days ago          Up 26 hours         0.0.0.0:3306->3306/tcp   pythonsql
+   46304152770a        mariadb:10.3        "docker-entrypoint.s…"   7 days ago          Up 26 hours         0.0.0.0:3306->3306/tcp   pythonsql
    ```
-   ***
 
-1. Para inicializar la base de datos se ejecuta el comando `mysql` haciendo uso del contenedor Docker, leyendo las instrucciones SQL desde el archivo `sql/biblioteca.sql` usando los datos definidos anteriomente.
+   ---
+
+5. Para inicializar la base de datos se ejecuta el comando `mysql` haciendo uso del contenedor Docker, leyendo las instrucciones SQL desde el archivo `sql/biblioteca.sql` usando los datos definidos anteriomente.
 
    __El comando a ejecutar es:__
    ```console
-   Sesion-01/Ejemplo-01 $ docker exec -i pythonsql mysql -hlocalhost -uroot -ppythonsql < sql/biblioteca.sql
+   Sesion-01/Ejemplo-01 $ docker exec -i backendpython mysql -hlocalhost -uroot -ppythonsql < sql/biblioteca.sql
 
    Sesion-01/Ejemplo-01 $
    ```
@@ -104,7 +105,8 @@
    - __User:__ Biblioteca
    - __Pass:__ Biblioteca
    - __Base:__ Biblioteca
-   ***
+
+   ---
 
 1. Para validar que la base de datos se haya inicializado de forma correcta se realiza una conexión a la base de datos con el siguiente comando:
 
@@ -127,3 +129,15 @@
 Si has llegado hasta este punto __FELICIDADES__, toma un respiro o ayuda a algún compañero que no lo haya logrado aún o tomate una selfi con tu primer contenedor de Docker ejecutando un servidor de base de datos MariaDB.
 
 <span style="display:block;text-align:center;">![Felicidades](assets/felicidades.png)</span>
+
+
+## Recursos adicionales
+
+### Docker
+
+- https://katacoda.com/courses/docker
+- https://www.tutorialspoint.com/docker/index.htm
+
+### Modelo entidad-relación
+
+- https://desarrolloweb.com/articulos/modelo-entidad-relacion.html
